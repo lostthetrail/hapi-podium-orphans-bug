@@ -1,0 +1,22 @@
+{
+  "name": "hapi-podium-orphans-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lostthetrail/hapi-podium-orphans-bug.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lostthetrail/hapi-podium-orphans-bug/issues"
+  },
+  "homepage": "https://github.com/lostthetrail/hapi-podium-orphans-bug#readme",
+  "dependencies": {
+    "hapi": "^16.1.1"
+  }
+}
