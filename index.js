@@ -1,9 +1,6 @@
 'use strict';
 
 const Hapi = require('hapi');
-const Api = require('./api');
-
-const api = new Api();
 
 const server = new Hapi.Server({ 
     debug: {
@@ -15,6 +12,7 @@ server.connection({
     port: 3000, host: 'localhost'
 });
 
+// Add custom request.id
 server.register({
     register: require('./plugin')
 });
@@ -34,16 +32,10 @@ server.register({
     }
 });
 
-
-
 server.route({
     method: 'GET',
     path: '/',
-    handler: function (request, reply) {
-        api.read('/example', {parentRequest: request}, (err, value) => {
-            return reply(value);
-        });
-    }
+    handler: require('./handler')
 });
 
 // Ignore favicon requests
