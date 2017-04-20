@@ -35,6 +35,12 @@ server.register({
 server.route({
     method: 'GET',
     path: '/',
+    handler: require('./handler')
+});
+
+server.route({
+    method: 'GET',
+    path: '/real',
     handler: require('./handler2')
 });
 

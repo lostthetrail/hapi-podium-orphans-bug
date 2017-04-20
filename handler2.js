@@ -5,14 +5,15 @@ const httpClient = new HttpClient('bceFooter', {
 });
 
 module.exports = function(request, reply) {
-    httpClient.get(request, '/footer', {
+    return httpClient.get(request, '/footer', {
         params: {
             site: 'homeaway_us'
         }
-    }, (err, response) => {
-        if (err) {
-            return reply(err);
-        }
+    })
+    .then((response) => {
         return reply(response.payload);
+    })
+    .catch((err) => {
+        return reply(err);
     });
 }
