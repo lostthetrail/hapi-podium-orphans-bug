@@ -14,8 +14,9 @@ class Api {
         const validation = Joi.validate(options, internals.schema);
         const settings = validation.value;
         // Mock API call
+        const start = Date.now();
         setTimeout(() => {
-            settings.parentRequest.log(['timings'], 'DNS lookup took XYZ ms.');
+            settings.parentRequest.log(['timings'], `API took ${Date.now() - start} ms`);
             callback(null, 'OK');
         }, 400);
     }
