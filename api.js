@@ -10,13 +10,14 @@ const internals = {
 };
 
 class Api {
-    read(url, options) {
-        Joi.validate(options, internals.schema, (err, settings) => {
-            // Mock API call
-            setTimeout(() => {
-                settings.parentRequest.log(['timings'], 'DNS lookup took XYZ ms.');
-            }, 400)
-        });
+    read(url, options, callback) {
+        const validation = Joi.validate(options, internals.schema);
+        const settings = validation.value;
+        // Mock API call
+        setTimeout(() => {
+            settings.parentRequest.log(['timings'], 'DNS lookup took XYZ ms.');
+            callback(null, 'OK');
+        }, 400);
     }
 }
 

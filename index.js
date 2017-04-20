@@ -16,6 +16,10 @@ server.connection({
 });
 
 server.register({
+    register: require('./plugin')
+});
+
+server.register({
     register: require('good'),
     options: {
         reporters: {
@@ -31,12 +35,14 @@ server.register({
 });
 
 
+
 server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        api.read('/example', {parentRequest: request});
-        reply('OK');
+        api.read('/example', {parentRequest: request}, (err, value) => {
+            return reply(value);
+        });
     }
 });
 
