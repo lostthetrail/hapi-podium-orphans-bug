@@ -35,7 +35,7 @@ server.register({
 server.route({
     method: 'GET',
     path: '/',
-    handler: require('./handler')
+    handler: require('./handler2')
 });
 
 // Ignore favicon requests
